@@ -6,8 +6,7 @@
 * 使用：  
 
   ```
-  UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
-    view.backgroundColor = [UIColor yellowColor];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
     view.ly_exposureBlock = ^(UIView *view) {
         NSLog(@"曝光了，做点啥");
     };
@@ -23,7 +22,8 @@
   
   
 
-* 主要是为了曝光某些view时，统计某些事件，后觉得每次都需要繁琐的额外代码，太麻烦，所以整理了曝光的一些封装
+* 主要是为了曝光某些view时，统计某些事件，后觉得每次都需要繁琐的额外代码，太麻烦，所以整理了曝光的一些封装  
+  思路是监听 mainRunLoop，收到即将进入休眠的通知时进行 view 的曝光计算  
 * 完善   
    * `UITableView` `UICollectionView` 的相关曝光  
    * `PageViewContrller` 预加载页面的曝光处理
