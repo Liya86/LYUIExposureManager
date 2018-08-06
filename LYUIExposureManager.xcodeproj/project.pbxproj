@@ -14,6 +14,14 @@
 		6AB1CE6C21152B5100F7E55C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB1CE6A21152B5100F7E55C /* LaunchScreen.storyboard */; };
 		6AB1CE6F21152B5100F7E55C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE6E21152B5100F7E55C /* main.m */; };
 		6AB1CE7921152B5200F7E55C /* LYUIExposureManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE7821152B5200F7E55C /* LYUIExposureManagerTests.m */; };
+		6AB1CE8921152BAF00F7E55C /* UIView+LYExposure.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE8821152BAF00F7E55C /* UIView+LYExposure.m */; };
+		6AB1CE8C21152BFB00F7E55C /* LYUIExposureManager_.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE8B21152BFB00F7E55C /* LYUIExposureManager_.m */; };
+		6AB1CE90211542A200F7E55C /* UIViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE8F211542A200F7E55C /* UIViewTest.m */; };
+		6AB1CE9621154DDC00F7E55C /* NSObject+LYSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE9521154DDC00F7E55C /* NSObject+LYSwizzle.m */; };
+		6AB1CE992115594200F7E55C /* NSRunLoop+LYObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE982115594200F7E55C /* NSRunLoop+LYObserver.m */; };
+		6AB1CE9F211562C100F7E55C /* UIView+LYExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE9E211562C100F7E55C /* UIView+LYExtend.m */; };
+		6AB1CEA52117D8D300F7E55C /* NSObject+LYExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CEA42117D8D300F7E55C /* NSObject+LYExtend.m */; };
+		6AB1CEA82118164900F7E55C /* UIViewController+LYExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CEA72118164900F7E55C /* UIViewController+LYExtend.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +48,23 @@
 		6AB1CE7421152B5200F7E55C /* LYUIExposureManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LYUIExposureManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB1CE7821152B5200F7E55C /* LYUIExposureManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYUIExposureManagerTests.m; sourceTree = "<group>"; };
 		6AB1CE7A21152B5200F7E55C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AB1CE8721152BAF00F7E55C /* UIView+LYExposure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LYExposure.h"; sourceTree = "<group>"; };
+		6AB1CE8821152BAF00F7E55C /* UIView+LYExposure.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYExposure.m"; sourceTree = "<group>"; };
+		6AB1CE8A21152BFB00F7E55C /* LYUIExposureManager_.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYUIExposureManager_.h; sourceTree = "<group>"; };
+		6AB1CE8B21152BFB00F7E55C /* LYUIExposureManager_.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYUIExposureManager_.m; sourceTree = "<group>"; };
+		6AB1CE8D21152C1700F7E55C /* LYUIExposureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYUIExposureManager.h; sourceTree = "<group>"; };
+		6AB1CE8E211542A200F7E55C /* UIViewTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewTest.h; sourceTree = "<group>"; };
+		6AB1CE8F211542A200F7E55C /* UIViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewTest.m; sourceTree = "<group>"; };
+		6AB1CE9421154DDB00F7E55C /* NSObject+LYSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LYSwizzle.h"; sourceTree = "<group>"; };
+		6AB1CE9521154DDC00F7E55C /* NSObject+LYSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYSwizzle.m"; sourceTree = "<group>"; };
+		6AB1CE972115594200F7E55C /* NSRunLoop+LYObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+LYObserver.h"; sourceTree = "<group>"; };
+		6AB1CE982115594200F7E55C /* NSRunLoop+LYObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSRunLoop+LYObserver.m"; sourceTree = "<group>"; };
+		6AB1CE9D211562C100F7E55C /* UIView+LYExtend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+LYExtend.h"; sourceTree = "<group>"; };
+		6AB1CE9E211562C100F7E55C /* UIView+LYExtend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+LYExtend.m"; sourceTree = "<group>"; };
+		6AB1CEA32117D8D300F7E55C /* NSObject+LYExtend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+LYExtend.h"; sourceTree = "<group>"; };
+		6AB1CEA42117D8D300F7E55C /* NSObject+LYExtend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYExtend.m"; sourceTree = "<group>"; };
+		6AB1CEA62118164900F7E55C /* UIViewController+LYExtend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LYExtend.h"; sourceTree = "<group>"; };
+		6AB1CEA72118164900F7E55C /* UIViewController+LYExtend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LYExtend.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +88,7 @@
 		6AB1CE5321152B5100F7E55C = {
 			isa = PBXGroup;
 			children = (
+				6AB1CE8321152B6A00F7E55C /* Source */,
 				6AB1CE5E21152B5100F7E55C /* LYUIExposureManager */,
 				6AB1CE7721152B5200F7E55C /* LYUIExposureManagerTests */,
 				6AB1CE5D21152B5100F7E55C /* Products */,
@@ -90,6 +116,8 @@
 				6AB1CE6A21152B5100F7E55C /* LaunchScreen.storyboard */,
 				6AB1CE6D21152B5100F7E55C /* Info.plist */,
 				6AB1CE6E21152B5100F7E55C /* main.m */,
+				6AB1CE8E211542A200F7E55C /* UIViewTest.h */,
+				6AB1CE8F211542A200F7E55C /* UIViewTest.m */,
 			);
 			path = LYUIExposureManager;
 			sourceTree = "<group>";
@@ -101,6 +129,28 @@
 				6AB1CE7A21152B5200F7E55C /* Info.plist */,
 			);
 			path = LYUIExposureManagerTests;
+			sourceTree = "<group>";
+		};
+		6AB1CE8321152B6A00F7E55C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6AB1CE8D21152C1700F7E55C /* LYUIExposureManager.h */,
+				6AB1CE8A21152BFB00F7E55C /* LYUIExposureManager_.h */,
+				6AB1CE8B21152BFB00F7E55C /* LYUIExposureManager_.m */,
+				6AB1CE9421154DDB00F7E55C /* NSObject+LYSwizzle.h */,
+				6AB1CE9521154DDC00F7E55C /* NSObject+LYSwizzle.m */,
+				6AB1CE972115594200F7E55C /* NSRunLoop+LYObserver.h */,
+				6AB1CE982115594200F7E55C /* NSRunLoop+LYObserver.m */,
+				6AB1CEA32117D8D300F7E55C /* NSObject+LYExtend.h */,
+				6AB1CEA42117D8D300F7E55C /* NSObject+LYExtend.m */,
+				6AB1CE8721152BAF00F7E55C /* UIView+LYExposure.h */,
+				6AB1CE8821152BAF00F7E55C /* UIView+LYExposure.m */,
+				6AB1CE9D211562C100F7E55C /* UIView+LYExtend.h */,
+				6AB1CE9E211562C100F7E55C /* UIView+LYExtend.m */,
+				6AB1CEA62118164900F7E55C /* UIViewController+LYExtend.h */,
+				6AB1CEA72118164900F7E55C /* UIViewController+LYExtend.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,9 +255,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AB1CE8921152BAF00F7E55C /* UIView+LYExposure.m in Sources */,
 				6AB1CE6421152B5100F7E55C /* ViewController.m in Sources */,
 				6AB1CE6F21152B5100F7E55C /* main.m in Sources */,
+				6AB1CE992115594200F7E55C /* NSRunLoop+LYObserver.m in Sources */,
+				6AB1CEA52117D8D300F7E55C /* NSObject+LYExtend.m in Sources */,
+				6AB1CE9F211562C100F7E55C /* UIView+LYExtend.m in Sources */,
+				6AB1CE90211542A200F7E55C /* UIViewTest.m in Sources */,
+				6AB1CEA82118164900F7E55C /* UIViewController+LYExtend.m in Sources */,
 				6AB1CE6121152B5100F7E55C /* AppDelegate.m in Sources */,
+				6AB1CE9621154DDC00F7E55C /* NSObject+LYSwizzle.m in Sources */,
+				6AB1CE8C21152BFB00F7E55C /* LYUIExposureManager_.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
