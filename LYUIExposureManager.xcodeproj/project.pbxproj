@@ -16,7 +16,6 @@
 		6AB1CE7921152B5200F7E55C /* LYUIExposureManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE7821152B5200F7E55C /* LYUIExposureManagerTests.m */; };
 		6AB1CE8921152BAF00F7E55C /* UIView+LYExposure.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE8821152BAF00F7E55C /* UIView+LYExposure.m */; };
 		6AB1CE8C21152BFB00F7E55C /* LYUIExposureManager_.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE8B21152BFB00F7E55C /* LYUIExposureManager_.m */; };
-		6AB1CE90211542A200F7E55C /* UIViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE8F211542A200F7E55C /* UIViewTest.m */; };
 		6AB1CE9621154DDC00F7E55C /* NSObject+LYSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE9521154DDC00F7E55C /* NSObject+LYSwizzle.m */; };
 		6AB1CE992115594200F7E55C /* NSRunLoop+LYObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE982115594200F7E55C /* NSRunLoop+LYObserver.m */; };
 		6AB1CE9F211562C100F7E55C /* UIView+LYExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1CE9E211562C100F7E55C /* UIView+LYExtend.m */; };
@@ -53,8 +52,6 @@
 		6AB1CE8A21152BFB00F7E55C /* LYUIExposureManager_.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYUIExposureManager_.h; sourceTree = "<group>"; };
 		6AB1CE8B21152BFB00F7E55C /* LYUIExposureManager_.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYUIExposureManager_.m; sourceTree = "<group>"; };
 		6AB1CE8D21152C1700F7E55C /* LYUIExposureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYUIExposureManager.h; sourceTree = "<group>"; };
-		6AB1CE8E211542A200F7E55C /* UIViewTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewTest.h; sourceTree = "<group>"; };
-		6AB1CE8F211542A200F7E55C /* UIViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewTest.m; sourceTree = "<group>"; };
 		6AB1CE9421154DDB00F7E55C /* NSObject+LYSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LYSwizzle.h"; sourceTree = "<group>"; };
 		6AB1CE9521154DDC00F7E55C /* NSObject+LYSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LYSwizzle.m"; sourceTree = "<group>"; };
 		6AB1CE972115594200F7E55C /* NSRunLoop+LYObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSRunLoop+LYObserver.h"; sourceTree = "<group>"; };
@@ -116,8 +113,6 @@
 				6AB1CE6A21152B5100F7E55C /* LaunchScreen.storyboard */,
 				6AB1CE6D21152B5100F7E55C /* Info.plist */,
 				6AB1CE6E21152B5100F7E55C /* main.m */,
-				6AB1CE8E211542A200F7E55C /* UIViewTest.h */,
-				6AB1CE8F211542A200F7E55C /* UIViewTest.m */,
 			);
 			path = LYUIExposureManager;
 			sourceTree = "<group>";
@@ -261,7 +256,6 @@
 				6AB1CE992115594200F7E55C /* NSRunLoop+LYObserver.m in Sources */,
 				6AB1CEA52117D8D300F7E55C /* NSObject+LYExtend.m in Sources */,
 				6AB1CE9F211562C100F7E55C /* UIView+LYExtend.m in Sources */,
-				6AB1CE90211542A200F7E55C /* UIViewTest.m in Sources */,
 				6AB1CEA82118164900F7E55C /* UIViewController+LYExtend.m in Sources */,
 				6AB1CE6121152B5100F7E55C /* AppDelegate.m in Sources */,
 				6AB1CE9621154DDC00F7E55C /* NSObject+LYSwizzle.m in Sources */,

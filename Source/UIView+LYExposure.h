@@ -15,4 +15,10 @@
  */
 @property (nonatomic, copy, setter=ly_setExposuerBlock:) void(^ly_exposureBlock)(UIView *);
 
+/**
+    UIView 曝光补偿（原来的曝光区域+这里的补偿，CGRectMake(x-.width, y-.heigh, w+2*.widht, h+2*.heigh)）
+    时机：最好在设置曝光操作（ly_setExposuerBlock:）前设置 -- 默认时CGSizeZero
+ */
+@property (nonatomic, assign, setter=ly_setECompensationSize:) CGSize ly_ECompensationSize;
+
 @end

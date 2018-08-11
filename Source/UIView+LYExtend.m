@@ -8,6 +8,7 @@
 
 #import "UIView+LYExtend.h"
 #import <objc/runtime.h>
+#import "UIView+LYExposure.h"
 
 @implementation UIView (LYExtend)
 - (UIViewController *)ly_viewController {
@@ -36,8 +37,12 @@
     if (!window || self.isHidden || self.alpha < 0.01) {
         return NO;
     }
-    
-    CGRect rectInWindow = CGRectIntegral([self.superview convertRect:self.frame toView:window]);
+    CGRect frame = self.frame;
+    frame.origin.x -= self.ly_ECompensationSize.width;
+    frame.origin.y -= self.ly_ECompensationSize.height;
+    frame.size.width += self.ly_ECompensationSize.width * 2;
+    frame.size.height += self.ly_ECompensationSize.height * 2;
+    CGRect rectInWindow = CGRectIntegral([self.superview convertRect:frame toView:window]);
     if (CGRectIsEmpty(rectInWindow) || CGRectIsNull(rectInWindow) || CGSizeEqualToSize(rectInWindow.size, CGSizeZero)) {
         return NO;
     }

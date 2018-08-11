@@ -42,4 +42,22 @@
     return objc_getAssociatedObject(self, @selector(ly_exposureBlock));
 }
 
+- (void)ly_setECompensationSize:(CGSize)ly_ECompensationSize {
+    [self willChangeValueForKey:NSStringFromSelector(@selector(ly_ECompensationSize))];
+    if (CGSizeEqualToSize(ly_ECompensationSize, CGSizeZero)) {
+        objc_setAssociatedObject(self, @selector(ly_ECompensationSize), nil, OBJC_ASSOCIATION_RETAIN);
+    } else {
+        objc_setAssociatedObject(self, @selector(ly_ECompensationSize), [NSValue valueWithCGSize:ly_ECompensationSize], OBJC_ASSOCIATION_COPY);
+    }
+    [self didChangeValueForKey:NSStringFromSelector(@selector(ly_ECompensationSize))];
+}
+
+- (CGSize)ly_ECompensationSize {
+    NSValue *ECompensationSizeValue = objc_getAssociatedObject(self, @selector(ly_ECompensationSize));
+    if (ECompensationSizeValue) {
+        return ECompensationSizeValue.CGSizeValue;
+    }
+    return CGSizeZero;
+}
+
 @end
