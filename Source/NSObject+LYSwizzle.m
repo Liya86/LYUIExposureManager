@@ -3,7 +3,7 @@
 //  LYSingnalTest
 //
 //  Created by LY on 2017/11/15.
-//  Copyright © 2017年 IMY. All rights reserved.
+//  Copyright © 2017年 LY. All rights reserved.
 //
 
 #import "NSObject+LYSwizzle.h"
