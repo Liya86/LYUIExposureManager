@@ -91,6 +91,7 @@
             if (view.ly_viewController == VC) {
                 [self.listenableViews removeObject:view];
                 [self.listeningViews addObject:view];
+                [self addObserverForMainRunloop];
             }
         }
     });
@@ -104,6 +105,9 @@
                 [self.listeningViews removeObject:view];
                 [self.listenableViews addObject:view];
             }
+        }
+        if (self.listeningViews.count == 0) {
+            [self removeObserverForMainRunloop];
         }
     });
 }
