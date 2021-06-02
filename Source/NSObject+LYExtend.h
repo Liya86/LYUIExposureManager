@@ -10,6 +10,6 @@
 @class UIViewController;
 
 @interface NSObject (LYExtend)
-- (UIViewController *)topViewController;
-- (UIViewController *)topViewController:(UIViewController *)rootViewController;
+- (UIViewController *)ly_topViewController;
+- (UIViewController *)ly_topViewController:(UIViewController *)rootViewController;
 @end

@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 @implementation NSObject (LYExtend)
 
-- (UIViewController *)topViewController {
+- (UIViewController *)ly_topViewController {
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];
     if (window.windowLevel != UIWindowLevelNormal) {
         NSArray *windows = [[UIApplication sharedApplication] windows];
@@ -21,20 +21,20 @@
             }
         }
     }
-    return [self topViewController:window.rootViewController];
+    return [self ly_topViewController:window.rootViewController];
 }
 
-- (UIViewController *)topViewController:(UIViewController *)rootViewController {
+- (UIViewController *)ly_topViewController:(UIViewController *)rootViewController {
     if ([rootViewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigationController = (UINavigationController *)rootViewController;
-        return [self topViewController:[navigationController.viewControllers lastObject]];
+        return [self ly_topViewController:navigationController.topViewController];
     }
     if ([rootViewController isKindOfClass:[UITabBarController class]]) {
         UITabBarController *tabController = (UITabBarController *)rootViewController;
-        return [self topViewController:tabController.selectedViewController];
+        return [self ly_topViewController:tabController.selectedViewController];
     }
     if (rootViewController.presentedViewController) {
-        return [self topViewController:rootViewController.presentedViewController];
+        return [self ly_topViewController:rootViewController.presentedViewController];
     }
     return rootViewController;
 }

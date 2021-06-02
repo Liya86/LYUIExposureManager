@@ -117,7 +117,7 @@
 - (BOOL)pivate_exposureView:(UIView *)view {
     // 获取父视图控制器,判断父视图是否是当前显示的控制器
     UIViewController *vc = view.ly_viewController;
-    if (!view || vc != [view topViewController]) {
+    if (!view || vc != [view ly_topViewController]) {
         return NO;
     }
     if (!view.ly_exposureBlock) {
