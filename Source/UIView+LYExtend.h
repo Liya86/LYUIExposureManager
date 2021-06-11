@@ -13,4 +13,7 @@
 @property (nonatomic, strong, setter=ly_setViewController:) UIViewController *ly_viewController;
 @property (nonatomic, assign, readonly) BOOL ly_displayedInScreen;
 
+/// 是否显示在当前显示的控制器上
+- (BOOL)ly_displayedInViewController;
+
 @end

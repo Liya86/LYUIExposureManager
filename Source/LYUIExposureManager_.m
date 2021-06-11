@@ -115,12 +115,12 @@
 #pragma mark - private
 
 - (BOOL)pivate_exposureView:(UIView *)view {
-    // 获取父视图控制器,判断父视图是否是当前显示的控制器
-    UIViewController *vc = view.ly_viewController;
-    if (!view || vc != [view ly_topViewController]) {
+    if (!view || !view.ly_exposureBlock) {
         return NO;
     }
-    if (!view.ly_exposureBlock) {
+    
+    // 获取父视图控制器,判断父视图是否是当前显示的控制器
+    if (![view ly_displayedInViewController]) {
         return NO;
     }
     return view.ly_displayedInScreen;

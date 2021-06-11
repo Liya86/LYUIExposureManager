@@ -9,6 +9,7 @@
 #import "UIView+LYExtend.h"
 #import <objc/runtime.h>
 #import "UIView+LYExposure.h"
+#import "NSObject+LYExtend.h"
 
 @implementation UIView (LYExtend)
 - (UIViewController *)ly_viewController {
@@ -53,6 +54,27 @@
         return NO;
     }
     return YES;
+}
+
+- (BOOL)ly_displayedInViewController {
+    UIViewController *vc = self.ly_viewController;
+    UIViewController *topVC = [self ly_topViewController];
+    BOOL isSameOrChild = NO;
+    while (vc) {
+        if (vc == topVC) {
+            isSameOrChild = YES;
+            break;
+        }
+        
+        if (!vc.parentViewController) {
+            break;
+        }
+        
+        // 判断是否在父控制器下
+        vc = vc.parentViewController;
+    }
+    
+    return isSameOrChild;
 }
 
 @end
