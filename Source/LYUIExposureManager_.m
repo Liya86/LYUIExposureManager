@@ -115,6 +115,9 @@
 #pragma mark - private
 
 - (BOOL)pivate_exposureView:(UIView *)view {
+    if (view.ly_ignoreExposure || view.ly_ignoreExposureFromSuperView) {
+        return NO;
+    }
     if (!view || !view.ly_exposureBlock) {
         return NO;
     }

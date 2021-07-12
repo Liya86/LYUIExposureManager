@@ -11,10 +11,17 @@
 #import "UIView+LYExposure.h"
 #import "NSObject+LYExtend.h"
 
+@interface LYWeakObject : NSObject
+@property (nonatomic, weak) id obj;
+
++ (id)ly_weakObject:(id)obj;
+@end
+
 @implementation UIView (LYExtend)
 - (UIViewController *)ly_viewController {
     // 响应链里的第一个uiviewcontroller
-    UIViewController *vc = objc_getAssociatedObject(self, @"ly_viewController");
+    LYWeakObject *weakObj = objc_getAssociatedObject(self, @"ly_viewController");
+    UIViewController *vc = weakObj.obj;
     if (vc == nil) {
         UIResponder *responder = self;
         while ((responder = [responder nextResponder])) {
@@ -30,7 +37,8 @@
 }
 
 - (void)ly_setViewController:(UIViewController *)ly_viewController {
-    objc_setAssociatedObject(self, @"ly_viewController", ly_viewController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    LYWeakObject *weakObj = [LYWeakObject ly_weakObject:ly_viewController];
+    objc_setAssociatedObject(self, @"ly_viewController", weakObj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (BOOL)ly_displayedInScreen {
@@ -77,4 +85,12 @@
     return isSameOrChild;
 }
 
+@end
+
+@implementation LYWeakObject
++ (id)ly_weakObject:(id)obj {
+    LYWeakObject *wObj = [[LYWeakObject alloc] init];
+    wObj.obj = obj;
+    return wObj;
+}
 @end

@@ -21,4 +21,11 @@
  */
 @property (nonatomic, assign, setter=ly_setECompensationSize:) CGSize ly_ECompensationSize;
 
+/// 设置为YES时，忽略进行曝光的操作，NO就正常曝光，默认NO
+@property (nonatomic, assign, setter=ly_setIgnoreExposure:) BOOL ly_ignoreExposure;
+
+/// 设置为YES时，忽略进行曝光的操作，NO就正常曝光，默认NO
+/// 当superView的ly_ignoreExposure为YES时，ly_ignoreExposureFromSuperView就会跟随变为YES
+@property (nonatomic, assign, setter=ly_setIgnoreExposureFromSuperView:, readonly) BOOL ly_ignoreExposureFromSuperView;
+ 
 @end

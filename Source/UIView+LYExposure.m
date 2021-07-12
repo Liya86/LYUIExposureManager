@@ -17,6 +17,7 @@
 
 + (void)load {
     [self ly_swizzleMethod:@selector(willMoveToWindow:) withMethod:@selector(ly_willMoveToWindow:) error:nil];
+    [self ly_swizzleMethod:@selector(willMoveToSuperview:) withMethod:@selector(ly_willMoveToSuperview:) error:nil];
 }
 
 - (void)ly_willMoveToWindow:(UIWindow *)newWindow {
@@ -25,8 +26,16 @@
     if (self.ly_exposureBlock) {
         [[LYUIExposureManager sharedManager] listenExposureView:self];
     }
-    if (!newWindow) {
-        self.ly_viewController = nil;
+
+    self.ly_viewController = nil;
+
+}
+
+- (void)ly_willMoveToSuperview:(nullable UIView *)newSuperview {
+    if (newSuperview.ly_ignoreExposure || newSuperview.ly_ignoreExposureFromSuperView) {
+        self.ly_ignoreExposureFromSuperView = YES;
+    } else {
+        self.ly_ignoreExposureFromSuperView = NO;
     }
 }
 
@@ -60,4 +69,47 @@
     return CGSizeZero;
 }
 
+- (BOOL)ly_ignoreExposure {
+    NSNumber *ignoreExposureNum = objc_getAssociatedObject(self, @selector(ly_ignoreExposure));
+    return ignoreExposureNum.boolValue;
+}
+
+- (void)ly_setIgnoreExposure:(BOOL)ly_ignoreExposure {
+    if (self.ly_ignoreExposure == ly_ignoreExposure) {
+        return;
+    }
+    [self willChangeValueForKey:NSStringFromSelector(@selector(ly_ignoreExposure))];
+    if (!ly_ignoreExposure) {
+        objc_setAssociatedObject(self, @selector(ly_ignoreExposure), nil, OBJC_ASSOCIATION_RETAIN);
+    } else {
+        objc_setAssociatedObject(self, @selector(ly_ignoreExposure), @(ly_ignoreExposure), OBJC_ASSOCIATION_RETAIN);
+    }
+    [self didChangeValueForKey:NSStringFromSelector(@selector(ly_ignoreExposure))];
+    [self ly_followIgnoreExposureFromSuperView:(ly_ignoreExposure || self.ly_ignoreExposureFromSuperView)];
+}
+
+- (BOOL)ly_ignoreExposureFromSuperView {
+    NSNumber *ignoreExposureFromSuperViewNum = objc_getAssociatedObject(self, @selector(ly_ignoreExposureFromSuperView));
+    return ignoreExposureFromSuperViewNum.boolValue;
+}
+
+- (void)ly_setIgnoreExposureFromSuperView:(BOOL)ly_ignoreExposureFromSuperView {
+    [self willChangeValueForKey:NSStringFromSelector(@selector(ly_ignoreExposureFromSuperView))];
+    if (!ly_ignoreExposureFromSuperView) {
+        objc_setAssociatedObject(self, @selector(ly_ignoreExposureFromSuperView), nil, OBJC_ASSOCIATION_RETAIN);
+    } else {
+        objc_setAssociatedObject(self, @selector(ly_ignoreExposureFromSuperView), @(ly_ignoreExposureFromSuperView), OBJC_ASSOCIATION_RETAIN);
+    }
+    [self didChangeValueForKey:NSStringFromSelector(@selector(ly_ignoreExposureFromSuperView))];
+}
+
+- (void)ly_followIgnoreExposureFromSuperView:(BOOL)ignoreExposure {
+    NSArray *subViews = self.subviews;
+    for (UIView *subView in subViews) {
+        subView.ly_ignoreExposureFromSuperView = ignoreExposure;
+        if (!subView.ly_ignoreExposure) {
+            [subView ly_followIgnoreExposureFromSuperView:ignoreExposure];
+        }
+    }
+}
 @end
