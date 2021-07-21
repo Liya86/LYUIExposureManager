@@ -40,6 +40,7 @@
 }
 
 - (void)ly_setExposuerBlock:(void (^)(UIView *))ly_exposureBlock {
+    self.ly_firstExposureTime = 0;
     [self willChangeValueForKey:NSStringFromSelector(@selector(ly_exposureBlock))];
     objc_setAssociatedObject(self, @selector(ly_exposureBlock), ly_exposureBlock, OBJC_ASSOCIATION_COPY);
     [self didChangeValueForKey:NSStringFromSelector(@selector(ly_exposureBlock))];
@@ -114,22 +115,15 @@
 }
 
 - (void)ly_setEffectiveExposureTime:(NSInteger)ly_EffectiveExposureTime {
-    if (ly_EffectiveExposureTime == self.ly_EffectiveExposureTime) {
-        return;
-    }
     [self willChangeValueForKey:NSStringFromSelector(@selector(ly_EffectiveExposureTime))];
-    if (ly_EffectiveExposureTime == 0) {
-        objc_setAssociatedObject(self, @selector(ly_EffectiveExposureTime), nil, OBJC_ASSOCIATION_RETAIN);
-    } else {
-        objc_setAssociatedObject(self, @selector(ly_EffectiveExposureTime), @(ly_EffectiveExposureTime), OBJC_ASSOCIATION_RETAIN);
-    }
+    objc_setAssociatedObject(self, @selector(ly_EffectiveExposureTime), @(ly_EffectiveExposureTime), OBJC_ASSOCIATION_RETAIN);
     [self didChangeValueForKey:NSStringFromSelector(@selector(ly_EffectiveExposureTime))];
 }
 
 - (NSInteger)ly_EffectiveExposureTime {
     NSNumber *effectiveExposureTime = objc_getAssociatedObject(self, @selector(ly_EffectiveExposureTime));
     if (effectiveExposureTime == nil) {
-        return 300;
+        return kLYEffectiveExposureTime;
     }
     return effectiveExposureTime.integerValue;
 }
@@ -156,7 +150,7 @@
 - (NSInteger)ly_EffectiveExposureRatio {
     NSNumber *effectiveExposureRatioNum = objc_getAssociatedObject(self, @selector(ly_EffectiveExposureRatio));
     if (effectiveExposureRatioNum == nil) {
-        return 0;
+        return kLYEffectiveExposureRatio;
     }
     return effectiveExposureRatioNum.integerValue;
 }

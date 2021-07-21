@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+static NSInteger kLYEffectiveExposureTime = 300; //默认的有效曝光时间300ms
+static NSInteger kLYEffectiveExposureRatio = 0;  //默认的有效曝光比例
+
 @interface UIView (LYExposure)
 
 /**
