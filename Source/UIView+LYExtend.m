@@ -41,6 +41,15 @@
     objc_setAssociatedObject(self, @"ly_viewController", weakObj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (NSTimeInterval)ly_firstExposureTime {
+    NSNumber *firstExposureTime = objc_getAssociatedObject(self, @"ly_firstExposureTime");
+    return [firstExposureTime doubleValue];
+}
+
+- (void)ly_setFirstExposureTime:(NSTimeInterval)ly_firstExposureTime {
+    objc_setAssociatedObject(self, @"ly_firstExposureTime", @(ly_firstExposureTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (BOOL)ly_displayedInScreen {
     UIWindow *window = self.window;
     if (!window || self.isHidden || self.alpha < 0.01) {
@@ -61,6 +70,14 @@
     if (CGRectIsEmpty(intersectionRect) || CGRectIsNull(intersectionRect) || CGSizeEqualToSize(intersectionRect.size, CGSizeZero)) {
         return NO;
     }
+    
+    CGFloat intersectionArea = intersectionRect.size.width * intersectionRect.size.height;
+    CGFloat frameArea = frame.size.width * frame.size.height;
+    if (self.ly_EffectiveExposureRatio > 0 && frameArea > 0) {
+        NSInteger intersectionRatio = intersectionArea * 100 / frameArea;
+        return intersectionRatio > self.ly_EffectiveExposureRatio;
+    }
+    
     return YES;
 }
 

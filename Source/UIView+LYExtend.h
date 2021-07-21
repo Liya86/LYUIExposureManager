@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong, setter=ly_setViewController:) UIViewController *ly_viewController;
 @property (nonatomic, assign, readonly) BOOL ly_displayedInScreen;
+/// 刚曝光时的时间，距离1970年
+@property (nonatomic, assign, setter=ly_setFirstExposureTime:) NSTimeInterval ly_firstExposureTime;
 
 /// 是否显示在当前显示的控制器上
 - (BOOL)ly_displayedInViewController;

@@ -91,8 +91,10 @@
             if (view.ly_viewController == VC) {
                 [self.listenableViews removeObject:view];
                 [self.listeningViews addObject:view];
-                [self addObserverForMainRunloop];
             }
+        }
+        if (self.listeningViews.count) {
+            [self addObserverForMainRunloop];
         }
     });
 }
@@ -102,6 +104,7 @@
         NSArray *listenings = self.listeningViews.allObjects;
         for (UIView *view in listenings) {
             if (view.ly_viewController == VC) {
+                view.ly_firstExposureTime = 0;
                 [self.listeningViews removeObject:view];
                 [self.listenableViews addObject:view];
             }
@@ -118,7 +121,8 @@
     if (view.ly_ignoreExposure || view.ly_ignoreExposureFromSuperView) {
         return NO;
     }
-    if (!view || !view.ly_exposureBlock) {
+    
+    if (!view || !view.superview || view.isHidden || view.layer.isHidden || view.alpha < 0.01 || !view.ly_exposureBlock) {
         return NO;
     }
     
@@ -152,6 +156,7 @@
             [self addObserverForMainRunloop];
         }
     } else { //将来被监听的视图
+        listenView.ly_firstExposureTime = 0;
         [self.listenableViews addObject:listenView];
     }
 }
@@ -160,6 +165,7 @@
     if (view_ == nil) {
         return;
     }
+    view_.ly_firstExposureTime = 0;
     [self.listeningViews removeObject:view_];
     [self.listenableViews removeObject:view_];
     if (self.listeningViews.count == 0) {
@@ -172,11 +178,23 @@
     NSArray *listenings = self.listeningViews.allObjects;
     for (UIView *view in listenings) {
         if ([self pivate_exposureView:view]) {
+            if (view.ly_EffectiveExposureTime > 0) {
+                if (view.ly_firstExposureTime < 1) {
+                    view.ly_firstExposureTime = [[NSDate date] timeIntervalSince1970];
+                    return;
+                }
+                NSInteger exposuerTime = ([[NSDate date] timeIntervalSince1970] * 1000 - view.ly_firstExposureTime * 1000);
+                if (exposuerTime < view.ly_EffectiveExposureTime) {
+                    return;
+                }
+            }
             if (view.ly_exposureBlock) {
                 view.ly_exposureBlock(view);
             }
             view.ly_exposureBlock = nil;
             [self pivate_removeExposureView:view];
+        } else {
+            view.ly_firstExposureTime = 0;
         }
     }
 }
