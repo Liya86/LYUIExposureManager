@@ -56,7 +56,10 @@
 
 - (void)removeObserverForMainRunloop {
     [[NSRunLoop mainRunLoop] ly_removeObserverForCommonModesWith:observer];
-    observer = nil;
+    if (observer) {
+        CFRelease(observer);
+        observer = nil;
+    }
 }
 
 //退到后台就不进行监听了
