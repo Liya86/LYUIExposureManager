@@ -99,6 +99,20 @@
         vc = vc.parentViewController;
     }
     
+    while (topVC) {
+        if (vc == topVC) {
+            isSameOrChild = YES;
+            break;
+        }
+        
+        if (!topVC.parentViewController) {
+            break;
+        }
+        
+        // 判断是否在父控制器下
+        topVC = topVC.parentViewController;
+    }
+    
     return isSameOrChild;
 }
 
