@@ -32,6 +32,8 @@
 }
 
 - (void)ly_willMoveToSuperview:(nullable UIView *)newSuperview {
+    [self ly_willMoveToSuperview:newSuperview];
+    
     if (newSuperview.ly_ignoreExposure || newSuperview.ly_ignoreExposureFromSuperView) {
         self.ly_ignoreExposureFromSuperView = YES;
     } else {

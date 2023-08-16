@@ -32,11 +32,11 @@ static NSInteger kLYEffectiveExposureRatio = 0;  //默认的有效曝光比例
 @property (nonatomic, assign, setter=ly_setIgnoreExposureFromSuperView:, readonly) BOOL ly_ignoreExposureFromSuperView;
 
 /// 有效曝光时长，只有曝光时长大于ly_EffectiveExposureTime才算有效曝光, 单位是毫秒
-/// 默认是200毫秒
+/// 默认是300毫秒（kLYEffectiveExposureTime）
 @property (nonatomic, assign, setter=ly_setEffectiveExposureTime:) NSInteger ly_EffectiveExposureTime;
 
 /// 有效曝光比例，只有曝光面积大于ly_EffectiveExposureRatio时才算曝光（0～100），小于0就等于0，只要有曝光即可，大于100就等于100，要全部曝光
-/// 默认是30，即露出30%算曝光
+/// 默认是0，即露出就算曝光（kLYEffectiveExposureRatio）
 @property (nonatomic, assign, setter=ly_setEffectiveExposureRatio:) NSInteger ly_EffectiveExposureRatio;
  
 @end
