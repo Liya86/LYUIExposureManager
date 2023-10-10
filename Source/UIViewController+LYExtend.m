@@ -19,6 +19,13 @@
 + (void)load {
     [self ly_swizzleMethod:@selector(viewWillDisappear:) withMethod:@selector(ly_viewWillDisappear:) error:nil];
     [self ly_swizzleMethod:@selector(viewDidAppear:) withMethod:@selector(ly_viewDidAppear:) error:nil];
+    [self ly_swizzleMethod:@selector(viewWillAppear:) withMethod:@selector(ly_viewWillAppear:) error:nil];
+    [self ly_swizzleMethod:@selector(viewDidDisappear:) withMethod:@selector(ly_viewDidDisappear:) error:nil];
+}
+
+- (void)ly_viewWillAppear:(BOOL)animated {
+    [self ly_viewWillAppear:animated];
+    self.ly_viewWillDisappeared = NO;
 }
 
 - (void)ly_viewDidAppear:(BOOL)animated {
@@ -31,6 +38,11 @@
     self.ly_viewWillDisappeared = YES;
     [self ly_viewWillDisappear:animated];
     [[LYUIExposureManager sharedManager] dismissExposureViewController:self];
+}
+
+- (void)ly_viewDidDisappear:(BOOL)animated {
+    [self ly_viewDidDisappear:animated];
+    self.ly_viewDidAppeared = NO;
 }
 
 - (BOOL)ly_viewWillDisappeared {

@@ -10,6 +10,7 @@
 #import <objc/runtime.h>
 #import "UIView+LYExposure.h"
 #import "NSObject+LYExtend.h"
+#import "UIViewController+LYExtend.h"
 
 @interface LYWeakObject : NSObject
 @property (nonatomic, weak) id obj;
@@ -37,8 +38,12 @@
 }
 
 - (void)ly_setViewController:(UIViewController *)ly_viewController {
-    LYWeakObject *weakObj = [LYWeakObject ly_weakObject:ly_viewController];
-    objc_setAssociatedObject(self, @"ly_viewController", weakObj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (ly_viewController && !ly_viewController.ly_viewWillDisappeared) {
+        LYWeakObject *weakObj = [LYWeakObject ly_weakObject:ly_viewController];
+        objc_setAssociatedObject(self, @"ly_viewController", weakObj, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    } else if (!ly_viewController) {
+        objc_setAssociatedObject(self, @"ly_viewController", nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
 }
 
 - (NSTimeInterval)ly_firstExposureTime {
