@@ -121,11 +121,11 @@
 #pragma mark - private
 
 - (BOOL)pivate_exposureView:(UIView *)view {
-    if (view.ly_ignoreExposure || view.ly_ignoreExposureFromSuperView) {
+    if (view.ly_ignoreExposure || view.ly_ignoreExposureFromSuperView || view.ly_hiddenFromSuperView || !view.ly_exposureBlock) {
         return NO;
     }
     
-    if (!view || !view.superview || view.isHidden || view.layer.isHidden || view.alpha < 0.01 || !view.ly_exposureBlock) {
+    if (!view || !view.superview || view.isHidden || view.layer.isHidden || view.alpha < 0.01) {
         return NO;
     }
     

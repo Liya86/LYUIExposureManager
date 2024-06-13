@@ -31,6 +31,10 @@ static NSInteger kLYEffectiveExposureRatio = 0;  //默认的有效曝光比例
 /// 当superView的ly_ignoreExposure为YES时，ly_ignoreExposureFromSuperView就会跟随变为YES
 @property (nonatomic, assign, setter=ly_setIgnoreExposureFromSuperView:, readonly) BOOL ly_ignoreExposureFromSuperView;
 
+/// 父视图隐藏，那子视图也应该是隐藏状态
+/// 当superView的ly_ignoreExposure为YES时，ly_ignoreExposureFromSuperView就会跟随变为YES
+@property (nonatomic, assign, setter=ly_setHiddenFromSuperView:, readonly) BOOL ly_hiddenFromSuperView;
+
 /// 有效曝光时长，只有曝光时长大于ly_EffectiveExposureTime才算有效曝光, 单位是毫秒
 /// 默认是300毫秒（kLYEffectiveExposureTime）
 @property (nonatomic, assign, setter=ly_setEffectiveExposureTime:) NSInteger ly_EffectiveExposureTime;
