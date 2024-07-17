@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LYUIExposureManager"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "监听普通 view 曝光的封装处理"
 
   # This description is used to generate tags and improve search results.
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = "Liya86"
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/Liya86/LYUIExposureManager.git", :tag => "1.1.0" }
+  s.source       = { :git => "https://github.com/Liya86/LYUIExposureManager.git", :tag => "1.1.1" }
   s.source_files = "Source/**/*.{h,m}"
   s.frameworks   = "Foundation", "UIKit"
   s.requires_arc = true
